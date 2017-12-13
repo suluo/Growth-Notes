@@ -10,5 +10,7 @@
 * scrapy中如果请求2次就会放弃，说明该代理ip不行。
 * 有时候需要为不同的网站设置不同的代理，譬如国内和国外两种不同代理
 
+[http://blog.csdn.net/u011781521/article/details/70194744?locationNum=4&fps=1](http://blog.csdn.net/u011781521/article/details/70194744?locationNum=4&fps=1 "IP代理设置的几种方法")
+
 
 

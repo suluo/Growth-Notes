@@ -42,6 +42,7 @@ db.sample.insert_one({}).inserted_id
 db.sample.insert()
 db.sample.insert_many([{}, {}])
 ### update
+db.sample.update({}, {})
 db.sample.update({"username": "lilei", {"$set":{"Email": "hanmeimei@163.com"}}})
 
 ###
