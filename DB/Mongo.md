@@ -3,11 +3,15 @@
 ##### 命令行命令
 
 ```
+> show dbs
+> use db
+> show tables      show collections
 ### 查看全部collections
 > db.collection_names()
 ### find
 > db.sample.find().count()
 > db[table].findOne()
+> db.sample.find().sort({"age": 1})
 ### insert
 > db.sample.insert()
 > db.sample.insertOne()
@@ -18,6 +22,9 @@
 
 ### remove
 > db.sample.remove({})
+
+### index
+> 
 ```
 
 ##### pymongo
@@ -52,6 +59,10 @@ db.collection_names()
 posts = db.posts
 >>> posts.create_index([("date", DESCENDING), ("author", ASCENDING)])
 u'date_-1_author_1'
+>>> posts.create_index([("mike", 1), ("eliot", 1)])
+##### 检查是否存在些索引，如果不存在则创建，存在返回None, 参数同creat_index
+>>> posts.ensure_index("mike")
+
 >>> posts.find({"date": {"$lt": d}}).sort("author").explain()["cursor"]
 u'BtreeCursor date_-1_author_1'
 >>> posts.find({"date": {"$lt": d}}).sort("author").explain()["nscanned"]
