@@ -6,6 +6,9 @@
 > show dbs
 > use db
 > show tables      show collections
+> db.drop_collection("users") #删除表
+> db.dropDataBase() #删除库
+
 ### 查看全部collections
 > db.collection_names()
 ### find
@@ -24,7 +27,22 @@
 > db.sample.remove({})
 
 ### index
-> 
+> db.collection.creatIndex("")
+> db.collection.dropIndex("")
+
+
+## 一些特殊用法
+> db.copyDatabase(fromdb,todb,fromhost) 
+##复制数据库fromdb—源数据库名称，todb—目标数据库名称，fromhost—源数据库服务器地址
+> db.sample.renameCollection(newName) #重命名些数据集名称
+> db.sample.stats() #返回此数据集的状态
+> db.sample.totalSize() #返回些数据集的总大小
+> db.sample.distinct(‘name’,{‘ID’:{$lt:20}}) 
+##select distinct(name) from linlin where ID<20
+> db.sample.group({key:{'name':true},cond:{'name':'foo'},reduce:function(obj,prev){prev.msum+=obj.marks;},initial:{msum:0}})
+##select name,sum(marks) from linlin group by name
+> db.linlin.find('this.ID<20′,{name:1})  # select name from linlin where ID<20
+
 ```
 
 ##### pymongo
@@ -39,6 +57,7 @@ db = MongoClient('mongodb://localhost:27017/').db
 ### find
 db.sample.find().count()
 db.sample.find_one({}, {"_id": 0})
+db.sample.find({‘ID’:{$in:[25,35,45]}})
 #### 默认为升序
 db.sample.find().sort("username", ASCENDING) #升序
 db.sample.find().sort("username", DESCENDING) #降序
