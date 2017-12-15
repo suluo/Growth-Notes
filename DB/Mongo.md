@@ -14,6 +14,7 @@
 ### find
 > db.sample.find().count()
 > db[table].findOne()
+> db.sample.find("name": {$exists: false})
 > db.sample.find().sort({"age": 1})
 ### insert
 > db.sample.insert()
@@ -42,7 +43,6 @@
 > db.sample.group({key:{'name':true},cond:{'name':'foo'},reduce:function(obj,prev){prev.msum+=obj.marks;},initial:{msum:0}})
 ##select name,sum(marks) from linlin group by name
 > db.linlin.find('this.ID<20′,{name:1})  # select name from linlin where ID<20
-
 ```
 
 ##### pymongo
@@ -58,10 +58,12 @@ db = MongoClient('mongodb://localhost:27017/').db
 db.sample.find().count()
 db.sample.find_one({}, {"_id": 0})
 db.sample.find({‘ID’:{$in:[25,35,45]}})
+db.sample.find({'name': {"$exists": True}})
 #### 默认为升序
 db.sample.find().sort("username", ASCENDING) #升序
 db.sample.find().sort("username", DESCENDING) #降序
 db.sample.find().sort([("username": ASCENDING), "Email", DESCENDING]) #多项排序
+
 ### insert
 db.sample.insert_one({})
 db.sample.insert_one({}).inserted_id
@@ -85,6 +87,9 @@ u'date_-1_author_1'
 >>> posts.find({"date": {"$lt": d}}).sort("author").explain()["cursor"]
 u'BtreeCursor date_-1_author_1'
 >>> posts.find({"date": {"$lt": d}}).sort("author").explain()["nscanned"]
+
+### 过期时间
+db.sample.ensure_index({"createdAt": 1},{expireAfterSeconds: 300})
 
 for item in db.sample.find():
     print item
