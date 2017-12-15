@@ -28,8 +28,24 @@ sorted(iterable, cmp=None, key=None, reverse=False)    #不改变原有序列
 
 >>> a=[1,2,5,3,9,4,6,8,7,0,12]
 >>> sorted(a)
+```
+
+#### 传参
+
+不可变对象传值，如int，tuple，str等，可变对象传引用，如list，set，dict等
 
 ```
+from copy import copy，deepcopy
+a = {}
+b = copy(a) # 浅复制
+c = deepcopy(a) # 深复制
+
+def p1(*arg1,**arg2):     # 函数定义arg1 tuple序列， arg2 dict
+    a, b, c = arg1
+p1（1，2，3，dict）
+```
+
+
 
 
 
