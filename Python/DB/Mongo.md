@@ -99,16 +99,27 @@ for item in db.sample.find():
 
 #### 随机记录
 
+获取随机记录三种方法： [https://www.cnblogs.com/tr0217/p/4731486.html](https://www.cnblogs.com/tr0217/p/4731486.html "mongodb随机查询一条记录的正确方法")
+
 ```
 ## skip
-DBCursor cursor = coll.find(query);
-int rint = random.nextInt(cursor.count());
-cursor.skip(rint);
-DBObject word = null;
+import random
+cursor = db.sample.find(query);
+rint = random.randint(cursor.count());
+cursor.skip(rint).limit(0);
 if(cursor.hasNext()){
     word = cursor.next();
     cursor.close();
 }
+# 添加一个random数值字段
+var random=Math.random();
+var result=db.user.findOne({"random":{"$lt":random}});
+if(result==null){
+    result=db.user.findOne({"random":{"$gte":random}});
+}
+# 增加一个random空间位置字段
+db.coll.ensureIndex({  random: '2d' })
+result = db.coll.findOne({ random: { $near: [Math.random(), 0] } })
 ```
 
 
