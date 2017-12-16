@@ -43,6 +43,8 @@
 > db.sample.group({key:{'name':true},cond:{'name':'foo'},reduce:function(obj,prev){prev.msum+=obj.marks;},initial:{msum:0}})
 ##select name,sum(marks) from linlin group by name
 > db.linlin.find('this.ID<20′,{name:1})  # select name from linlin where ID<20
+
+> db.sample.find().limit(NUMBER).skip(NUMBER) # limit 显示多少条数据，skip偏移量
 ```
 
 ##### pymongo
@@ -93,6 +95,20 @@ db.sample.ensure_index({"createdAt": 1},{expireAfterSeconds: 300})
 
 for item in db.sample.find():
     print item
+```
+
+#### 随机记录
+
+```
+## skip
+DBCursor cursor = coll.find(query);
+int rint = random.nextInt(cursor.count());
+cursor.skip(rint);
+DBObject word = null;
+if(cursor.hasNext()){
+    word = cursor.next();
+    cursor.close();
+}
 ```
 
 
