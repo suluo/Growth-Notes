@@ -2,6 +2,8 @@
 
 ##### 命令行命令
 
+Mongo查询语法： [https://www.cnblogs.com/think\_fish/p/3422307.html](https://www.cnblogs.com/think_fish/p/3422307.html "Mongo查询语法")
+
 ```
 > show dbs
 > use db
@@ -11,11 +13,16 @@
 
 ### 查看全部collections
 > db.collection_names()
-### find
+
+### find 
+### $in & $nin; $or & $and; $mod & $not; $ne $exists
+> db.sample.find({age:{$mod:[11,0]}}) # 将查询的值除以第一个给定的值，若余数等于第二个给定的值，则返回该结果
+> db.sample.find({age:{$not:[11,0]}})
 > db.sample.find().count()
 > db[table].findOne()
 > db.sample.find("name": {$exists: false})
 > db.sample.find().sort({"age": 1})
+
 ### insert
 > db.sample.insert()
 > db.sample.insertOne()
@@ -56,15 +63,37 @@ from pymongo import ASCENDING, DESCENDING
 db = MongoClient(host="localhost", port=27017).db
 db = MongoClient('mongodb://localhost:27017/').db
 
-### find
+## find
 db.sample.find().count()
-db.sample.find_one({}, {"_id": 0})
+db.sample.find_one({}, {"_id": 0}) # 即使加上了列筛选，_id也会返回；必须显式的阻止_id返回
 db.sample.find({‘ID’:{$in:[25,35,45]}})
 db.sample.find({'name': {"$exists": True}})
 #### 默认为升序
 db.sample.find().sort("username", ASCENDING) #升序
 db.sample.find().sort("username", DESCENDING) #降序
 db.sample.find().sort([("username": ASCENDING), "Email", DESCENDING]) #多项排序
+
+### 
+db.users.find({"name" : {"$ne" : "joe"}}) # select * from users where username <> "joe"  
+db.users.find({"price" : {"$in" : [725, 542, 390]}}) # select * from users where ticket_no in (725, 542, 390)  
+db.users.find({"price" : {"$nin" : [725, 542, 390]}}) 
+db.users.find({"$or" : [{"price" : 725}, {"winner" : true}]}) # select * form users where ticket_no = 725 or winner = true  
+db.users.find({"id_num" : {"$mod" : [5, 1]}}) # select * from users where (id_num mod 5) = 1  
+db.users.find({"$not": {"age" : 27}}) # select * from users where not (age = 27)  
+db.users.find({"username" : {"$in" : [null], "$exists" : true}}) # select * from users where username is null // 如果直接通过find({"username" : null})进行查询，那么连带"没有username"的纪录一并筛选出来  
+db.users.find({"name" : /joey?/i}) # 正则查询，value是符合PCRE的表达式  
+
+db.people.find({"name.first" : "Joe", "name.last" : "Schmoe"})  # 嵌套查询  
+#### 数组查询
+db.food.find({fruit : {$all : ["apple", "banana"]}}) # 对数组的查询, 字段fruit中，既包含"apple",又包含"banana"的纪录  
+db.food.find({"fruit.2" : "peach"}) # 对数组的查询, 字段fruit中，第3个(从0开始)元素是peach的纪录  
+db.food.find({"fruit" : {"$size" : 3}}) # 对数组的查询, 查询数组元素个数是3的记录，$size前面无法和其他的操作符复合使用  
+db.users.findOne(criteria, {"comments" : {"$slice" : 10}}) # 对数组的查询，只返回数组comments中的前十条，还可以{"$slice" : -10}， {"$slice" : [23, 10]}; 分别返回最后10条，和中间10条  
+#### $elemMatch #嵌套查询，仅当嵌套的元素是数组时使用   
+db.blog.find({"comments" : {"$elemMatch" : {"author" : "joe", "score" : {"$gte" : 5}}}}) # 嵌套查询，仅当嵌套的元素是数组时使用,  
+db.foo.find({"$where" : "this.x + this.y == 10"}) # 复杂的查询，$where当然是非常方便的，但效率低下。对于复杂查询，考虑的顺序应当是 正则 -> MapReduce -> $where  
+db.foo.find({"$where" : "function() { return this.x + this.y == 10; }"}) # $where可以支持javascript函数作为查询条件  
+db.foo.find().sort({"x" : 1}).limit(1).skip(10); # 返回第(10, 11]条，按"x"进行排序; 三个limit的顺序是任意的，应该尽量避免skip中使用large-number  
 
 ### insert
 db.sample.insert_one({})
