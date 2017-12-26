@@ -62,5 +62,5 @@ if __name__ == "__main__":
 
 #### 发送邮件
 
-自动发送邮件[http://www.runoob.com/python3/python3-smtp.html](http://www.runoob.com/python3/python3-smtp.html%29%29\)
+[自动发送邮件](http://www.runoob.com/python3/python3-smtp.html)
 
