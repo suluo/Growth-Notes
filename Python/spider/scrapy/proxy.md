@@ -11,8 +11,9 @@
 
 * scrapy中如果请求2次就会放弃，说明该代理ip不行。
 * 有时候需要为不同的网站设置不同的代理，譬如国内和国外两种不同代理
+* [IP代理池](http://blog.csdn.net/u011781521/article/details/70194744?locationNum=4&fps=1)
 
-[http://blog.csdn.net/u011781521/article/details/70194744?locationNum=4&fps=1](http://blog.csdn.net/u011781521/article/details/70194744?locationNum=4&fps=1 "IP代理设置的几种方法")
+
 
 **process\_request\(request,spider\)**
 
@@ -25,8 +26,6 @@
 * Request对象：Scrapy则停止调用 process\_request方法并重新调度返回的request。当新返回的request被执行后， 相应地中间件链将会根据下载的response被调用。
 
 * raise一个IgnoreRequest异常：则安装的下载中间件的 process\_exception\(\) 方法会被调用。如果没有任何一个方法处理该异常， 则request的errback\(Request.errback\)方法会被调用。如果没有代码处理抛出的异常， 则该异常被忽略且不记录。
-
-
 
 备注：
 
