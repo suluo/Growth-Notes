@@ -49,7 +49,6 @@ def get_fileencoding(filename):
 #### argparse
 
 ```
-
 def main(num):
     return num
 
@@ -61,5 +60,7 @@ if __name__ == "__main__":
     main(args.num)
 ```
 
+#### 发送邮件
 
+\[自动发送邮件\]\(http://www.runoob.com/python3/python3-smtp.html\)
 

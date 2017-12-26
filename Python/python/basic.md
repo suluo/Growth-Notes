@@ -45,7 +45,12 @@ def p1(*arg1,**arg2):     # 函数定义arg1 tuple序列， arg2 dict
 p1（1，2，3，dict）
 ```
 
+#### 作用域
 
+```
+作用域：def class import 新的作用域，其他诸如逻辑循环都不会新添作用域
+列表表达式：[for x in for y in ]for x in是内层
+```
 
 
 
