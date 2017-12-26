@@ -2,7 +2,7 @@
 
 ##### 命令行命令
 
-Mongo查询语法： [https://www.cnblogs.com/think\_fish/p/3422307.html](https://www.cnblogs.com/think_fish/p/3422307.html "Mongo查询语法")
+[Mongo查询语法](https://www.cnblogs.com/think_fish/p/3422307.html)
 
 ```
 > show dbs
@@ -128,7 +128,7 @@ for item in db.sample.find():
 
 #### 随机记录
 
-获取随机记录三种方法： [https://www.cnblogs.com/tr0217/p/4731486.html](https://www.cnblogs.com/tr0217/p/4731486.html "mongodb随机查询一条记录的正确方法")
+[获取随机记录三种方法](https://www.cnblogs.com/tr0217/p/4731486.html)
 
 ```
 ## skip
