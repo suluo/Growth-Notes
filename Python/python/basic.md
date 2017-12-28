@@ -1,3 +1,12 @@
+#### List
+
+```
+# # 交并 差
+intersection = list(set(a).intersection(set(b)))
+union = list(set(a).union(set(b))
+difference = list(set(a).difference(set(b)))
+```
+
 #### 字典
 
 ##### 删除字典
