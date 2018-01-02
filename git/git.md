@@ -18,21 +18,19 @@ $ git branch --set-upstream-to origin/addFile
 $ git branch --unset-upstream #撤销本地分支与远程分支的映射关系
 ```
 
-git checkout 
+git checkout
 
 ```
 $ git checkout mybranch # 切换分支
 $ git checkout -b branch_name # 创建并切换
 $ git checkout -b branch_name 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96   # 以id创建并切换
 $ git checkout -b 本地分支名x origin/远程分支名x # 拉取远程分支并创建本地分支
-
 ```
 
 git fetch
 
 ```
 $ git fetch origin 远程分支名x:本地分支名x   # 拉取远程分支并创建本地分支
-
 ```
 
 git merge
@@ -57,10 +55,26 @@ git commit
 $ git commit -m "message"
 $ git commit -a
 $ git commit -a -amend  # 对最近一次commit进行修改
-$ 
+$
 ```
 
+git tag
 
+```
+$ git tag    # 在控制台打印出当前仓库的所有标签
+$ git tag -l "v1.1.*"  # 搜索符合模式的标签
+## git标签分为两种类型：轻量标签和附注标签。轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象。建议使用附注标签。
+$ git tag v0.1.2-light  # 创建轻量标签
+$ git tag -a v0.1.2 -m “0.1.2版本”   # 创建附注标签
+$ git tag -a v0.1.1 9fbc3d0   # 给指定的commit打标签
+
+$ git checkout [tagname] # 切换到标签
+$ git show v0.1.2 # 查看标签版本信息
+$ git tag -d v0.1.2 # 删除标签
+
+$ git push origin v0.1.2 # 将v0.1.2标签提交到git服务器
+$ git push origin –tags # 将本地所有标签一次性提交到git服务器
+```
 
 #### 回退
 
