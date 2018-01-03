@@ -8,8 +8,8 @@
 > show dbs
 > use db
 > show tables      show collections
-> db.drop_collection("users") #删除表
 > db.dropDatabase() #删除库
+> db.sample.drop() #删除表sample
 
 ### 查看全部collections
 > db.collection_names()
