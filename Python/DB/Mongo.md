@@ -28,6 +28,7 @@
 > db.sample.insertOne()
 ### update
 > db.sample.update({查询}, {修改})
+> db.sample.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}})
 ### 批量更新：第四个参数为true
 > db.sample.update({}, {}, false, true)
 
