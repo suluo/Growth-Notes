@@ -64,6 +64,8 @@ from pymongo import ASCENDING, DESCENDING
 db = MongoClient(host="localhost", port=27017).db
 db = MongoClient('mongodb://localhost:27017/').db
 
+db.drop_collections("sample")
+
 ## find
 db.sample.find().count()
 db.sample.find_one({}, {"_id": 0}) # 即使加上了列筛选，_id也会返回；必须显式的阻止_id返回
