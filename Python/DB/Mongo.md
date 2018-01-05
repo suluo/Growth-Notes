@@ -5,6 +5,9 @@
 [Mongo查询语法](https://www.cnblogs.com/think_fish/p/3422307.html)
 
 ```
+## 连接远程数据库
+$ mongo 192.168.1.200:27017/database -u user -p password
+
 > show dbs
 > use db
 > show tables      show collections
@@ -29,8 +32,9 @@
 ### update
 > db.sample.update({查询}, {修改})
 > db.sample.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}})
-### 批量更新：第四个参数为true
+### 批量更新：第四个参数为true ## 如果你要修改多条相同的文档，则需要设置 multi 参数为 true
 > db.sample.update({}, {}, false, true)
+> db.col.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}},{multi:true})
 
 ### remove
 > db.sample.remove({})
@@ -65,6 +69,7 @@ db = MongoClient(host="localhost", port=27017).db
 db = MongoClient('mongodb://localhost:27017/').db
 
 db.drop_collections("sample")
+db.sample.drop()
 
 ## find
 db.sample.find().count()
@@ -106,6 +111,8 @@ db.sample.insert_many([{}, {}])
 ### update
 db.sample.update({}, {})
 db.sample.update({"username": "lilei", {"$set":{"Email": "hanmeimei@163.com"}}})
+## 如果你要修改多条相同的文档，则需要设置 multi 参数为 true
+db.col.update({'title':'MongoDB 教程'},{"$set":{'title':'MongoDB'}},{multi:true})
 
 ###
 db.collection_names()
