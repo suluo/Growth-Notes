@@ -14,7 +14,7 @@
 
 [mongodb 配置和启动](http://www.jianshu.com/p/f179ce608391\)
 
-[mongodb启动与停止](http://blog.csdn.net/leshami/article/details/52371395\)
+[mongodb启动与停止](http://blog.csdn.net/leshami/article/details/52371395)
 
 [mongodb命令大全](http://www.cnblogs.com/iwenwen/archive/2013/06/09/3129253.html\)
 
