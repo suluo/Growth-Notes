@@ -8,6 +8,8 @@
 
 #### Mongodb
 
+[Mongodb 安装与配置](http://blog.csdn.net/wlzx120/article/details/52301799)
+
 [mongodb下载地址](https://www.mongodb.com/download-center#community)
 
 [mongodb 配置和启动](http://www.jianshu.com/p/f179ce608391\)
