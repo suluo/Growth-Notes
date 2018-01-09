@@ -50,7 +50,7 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db.sample.renameCollection(newName) #重命名些数据集名称
 > db.sample.stats() #返回此数据集的状态
 > db.sample.totalSize() #返回些数据集的总大小
-> db.sample.distinct(‘name’,{‘ID’:{$lt:20}}) 
+> db.sample.distinct('name',{‘ID’:{$lt:20}}) 
 ##select distinct(name) from linlin where ID<20
 > db.sample.group({key:{'name':true},cond:{'name':'foo'},reduce:function(obj,prev){prev.msum+=obj.marks;},initial:{msum:0}})
 ##select name,sum(marks) from linlin group by name

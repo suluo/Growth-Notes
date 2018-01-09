@@ -1,3 +1,10 @@
+#### None
+
+```
+if x is None  ## None
+if not x  # None,  False, 空字符串"", 0, 空列表[], 空字典{}, 空元组()都相当于False
+```
+
 #### List
 
 ```
