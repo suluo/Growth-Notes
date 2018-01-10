@@ -1,3 +1,11 @@
+#### 条件
+
+```
+## for 循环完整后执行else，中途break跳出，则连else一起跳出
+for xxx:
+else:
+```
+
 #### None
 
 ```
