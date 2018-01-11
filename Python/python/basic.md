@@ -24,6 +24,12 @@ difference = list(set(a).difference(set(b)))
 
 #### 字典
 
+```
+dict.keys()
+dict.values()
+for key, value in dict.iteritems()
+```
+
 ##### 删除字典
 
 ```

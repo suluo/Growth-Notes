@@ -7,7 +7,8 @@ $ mysql -h 192.168.1.222 -P 3306 -u user -p password
 
 SELECT column_name,column_name
 FROM table_name
-WHERE column_name operator value;
+WHERE column_name operator value
+limit start, size;
 ```
 
 Python  MySQLdb
