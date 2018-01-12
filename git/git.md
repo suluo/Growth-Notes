@@ -1,5 +1,12 @@
 #### 
 
+git clone
+
+```
+$ git clone url  # clone master
+$ git clone -b "分支名" url ## clone 分支
+```
+
 git branch
 
 ```
@@ -38,9 +45,12 @@ git merge
 ```
 $ git merge mybranch
 # 如果冲突====上半部分是head， 下半部分是mybranch内容
+$ git merge <origin-branch> --no-ff
+# 取消合并
+$ git merge --abort
 ```
 
-git status
+ git status
 
 ```
 $ git status
@@ -55,7 +65,65 @@ git commit
 $ git commit -m "message"
 $ git commit -a
 $ git commit -a -amend  # 对最近一次commit进行修改
-$
+$ 
+```
+
+git stash
+
+```
+$ git stash  # 先放入暂存区
+$ git stash pop # 恢复显示工作内容 或用git stash apply stash@{n}挑选恢复哪个
+
+$ git stash list
+$ git stash clear
+```
+
+git log
+
+```
+$ git log
+$ git log <fileName> # 单个文件记录
+$ git grep -n <string> # -n :显示包括制定字符串的文件行数
+```
+
+git diff
+
+```
+$ git diff <fileName> #比较当前文件和暂存区的区别
+$ git diff <commit-id1> <commit-id2> # 比较两次提交的差异
+```
+
+git config
+
+```
+$ git config user.email # 查看本目录下的邮箱
+$ git config user.name # 查看本目录下的用户名
+$ git config user.name "用户名" # 修改目录下仓库的用户名
+
+$ git config --global user.name # 查看全局用户名
+$ git config --global user.name "用户名" # 修改全局用户名
+$ git config --golbal
+```
+
+~/.gitconfig
+
+```
+[user]
+    name = hoby
+    email = hoby@github.com
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit
+    pl = pull --rebase
+    ps = push
+    mg = merge --no-ff
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+    autocrlf = input
+[push]
+    default = upstream
 ```
 
 git tag
@@ -86,6 +154,19 @@ $ git log     # 查看历史版本 假设id=139dcfaa558e3276b30b6b2e5cbbb9c00bbd
 $ git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96
 # 修改推到远端服务器
 $ git push -f -u origin master
+```
+
+git remote
+
+```
+$ git remote add origin url   ## 添加关联地址
+$ git remote set-url origin url ## 修改关联地址
+## 切换 https/ssh 方式
+$ git remote rm origin
+$ git remote add origin "git远程地址"
+$ git push origin
+# 查看当前仓库地址
+$ git remote -v
 ```
 
 
