@@ -5,7 +5,7 @@
 [Mongo查询语法](https://www.cnblogs.com/think_fish/p/3422307.html)
 
 ```
-## 连接远程数据库
+## 连接远程数据库   mongo 远程IP地址/端口号 -u 用户名 -p 密码
 $ mongo 192.168.1.200:27017/database -u user -p password
 
 > show dbs
