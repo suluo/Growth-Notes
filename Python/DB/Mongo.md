@@ -51,6 +51,7 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db.sample.stats() #返回此数据集的状态
 > db.sample.totalSize() #返回些数据集的总大小
 > db.sample.distinct('name',{‘ID’:{$lt:20}}) 
+> db.sample.find({"ID": {$lt: 20}}).distinct('name')
 ##select distinct(name) from linlin where ID<20
 > db.sample.group({key:{'name':true},cond:{'name':'foo'},reduce:function(obj,prev){prev.msum+=obj.marks;},initial:{msum:0}})
 ##select name,sum(marks) from linlin group by name
