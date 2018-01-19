@@ -50,7 +50,7 @@ $ git merge <origin-branch> --no-ff
 $ git merge --abort
 ```
 
- git status
+git status
 
 ```
 $ git status
@@ -65,7 +65,7 @@ git commit
 $ git commit -m "message"
 $ git commit -a
 $ git commit -a -amend  # 对最近一次commit进行修改
-$ 
+$
 ```
 
 git stash
