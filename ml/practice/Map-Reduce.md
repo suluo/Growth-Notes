@@ -15,7 +15,7 @@
 
 Hadoop Streaming适合进行数据统计等简单的纯粹的MR job
 
-[hadoop-streaming使用简介](http://zhazha.me/%E4%BD%BF%E7%94%A8Python%E5%92%8CHadoop-Streaming%E7%BC%96%E5%86%99MapReduce/)
+[hadoop-streaming使用简介](http://zhazha.me/使用Python和Hadoop-Streaming编写MapReduce/)
 
 #### spark shell {#spark-shell}
 
@@ -103,7 +103,7 @@ sentence.flatMap(x = > x.split()).filter(_.length < 30).map(x => (x, 1)).reduceB
 
 build.sbt：版本及库依赖；[build.sbt](http://blog.stanzhai.site/shi-yong-sbtgou-jian-scalaxiang-mu/)
 
-sbt 常用命令[sbt官方文档](http://www.scala-sbt.org/0.13/docs/zh-cn/Running.html#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
+sbt 常用命令[sbt官方文档](http://www.scala-sbt.org/0.13/docs/zh-cn/Running.html#常用命令)
 
 sbt 控制台：[sbt 控制台](http://www.importnew.com/4311.html)
 
@@ -135,5 +135,5 @@ sbt更复杂的依赖：[sbt复杂依赖.scala](https://github.com/CSUG/real_wor
 
 #### spark参考 {#spark参考}
 
-[spark使用总结](http://smallx.me/2016/06/07/spark%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/)
+[spark使用总结](http://smallx.me/2016/06/07/spark使用总结/)
 
