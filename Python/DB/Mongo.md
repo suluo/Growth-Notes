@@ -25,6 +25,8 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db[table].findOne()
 > db.sample.find("name": {$exists: false})
 > db.sample.find().sort({"age": 1})
+> db.foo.find({$or:[{a: 1},{b: 2}]})
+> db.sample.find({$where: "this."})
 
 ### insert
 > db.sample.insert()
@@ -102,6 +104,7 @@ db.users.findOne(criteria, {"comments" : {"$slice" : 10}}) # 对数组的查询�
 db.blog.find({"comments" : {"$elemMatch" : {"author" : "joe", "score" : {"$gte" : 5}}}}) # 嵌套查询，仅当嵌套的元素是数组时使用,  
 db.foo.find({"$where" : "this.x + this.y == 10"}) # 复杂的查询，$where当然是非常方便的，但效率低下。对于复杂查询，考虑的顺序应当是 正则 -> MapReduce -> $where  
 db.foo.find({"$where" : "function() { return this.x + this.y == 10; }"}) # $where可以支持javascript函数作为查询条件  
+db.foo.find({"$where": "this.fields1 == this.fields2"}).limit(10)
 db.foo.find().sort({"x" : 1}).limit(1).skip(10); # 返回第(10, 11]条，按"x"进行排序; 三个limit的顺序是任意的，应该尽量避免skip中使用large-number  
 
 ### insert

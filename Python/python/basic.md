@@ -25,6 +25,12 @@ difference = list(set(a).difference(set(b)))
 #### 字典
 
 ```
+import copy
+>>> a = [1,2,3,4,['a','b']]  #原始对象
+>>> b = a  #赋值，传对象的引用
+>>> c = copy.copy(a)
+>>> d = copy.deepcopy(a)
+
 dict.keys()
 dict.values()
 for key, value in dict.iteritems()
