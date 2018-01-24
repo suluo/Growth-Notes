@@ -59,7 +59,8 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 ##select name,sum(marks) from linlin group by name
 > db.linlin.find('this.ID<20′,{name:1})  # select name from linlin where ID<20
 
-> db.sample.find().limit(NUMBER).skip(NUMBER) # limit 显示多少条数据，skip偏移量
+> db.sample.find().limit(NUMBER).skip(NUMBER).batchSize(1000) # limit 显示多少条数据，skip偏移量, 
+> db.sample.find().limit(NUMBER).batchSize(1000)  ##batchSize 一次取多少个数据
 ```
 
 ##### pymongo
@@ -84,6 +85,8 @@ db.sample.find().sort("username", ASCENDING) #升序
 db.sample.find().sort("username", DESCENDING) #降序
 db.sample.find().sort([("username": ASCENDING), "Email", DESCENDING]) #多项排序
 
+db.COLLECTION_NAME.find().sort([(KEY, 1)])
+
 ### 
 db.users.find({"name" : {"$ne" : "joe"}}) # select * from users where username <> "joe"  
 db.users.find({"price" : {"$in" : [725, 542, 390]}}) # select * from users where ticket_no in (725, 542, 390)  
@@ -106,6 +109,7 @@ db.foo.find({"$where" : "this.x + this.y == 10"}) # 复杂的查询，$where当�
 db.foo.find({"$where" : "function() { return this.x + this.y == 10; }"}) # $where可以支持javascript函数作为查询条件  
 db.foo.find({"$where": "this.fields1 == this.fields2"}).limit(10)
 db.foo.find().sort({"x" : 1}).limit(1).skip(10); # 返回第(10, 11]条，按"x"进行排序; 三个limit的顺序是任意的，应该尽量避免skip中使用large-number  
+db.foo.find().limit(10000).batch_size(1000) # 一次取1000个数据
 
 ### insert
 db.sample.insert_one({})
