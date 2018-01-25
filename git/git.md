@@ -124,6 +124,32 @@ $ git config --golbal
     autocrlf = input
 [push]
     default = upstream
+    
+    
+[user]
+    name = 
+    email = 
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    mg = merge
+    ci = commit
+    md = commit --amend
+    dt = difftool
+    mt = mergetool
+    last = log -1 HEAD
+    cf = config
+    line = log --oneline
+    latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+
+    ls = log --pretty=format:\"%C(yellow)%h %C(blue)%ad %C(red)%d %C(reset)%s %C(green)[%cn]\" --decorate --date=short
+    hist = log --pretty=format:\"%C(yellow)%h %C(red)%d %C(reset)%s %C(green)[%an] %C(blue)%ad\" --topo-order --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+[merge]
+     tool = vimdiff
+
 ```
 
 git tag
