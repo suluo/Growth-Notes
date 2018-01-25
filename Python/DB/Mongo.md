@@ -169,5 +169,51 @@ db.coll.ensureIndex({  random: '2d' })
 result = db.coll.findOne({ random: { $near: [Math.random(), 0] } })
 ```
 
+mongo.conf
+
+```
+systemLog:
+    destination: file
+    #日志存储位置
+    path: /opt/mongodb/data/log/mongodb.log
+    logAppend: true
+
+storage:
+    #journal配置
+    journal:
+        enabled: true
+
+    #数据文件存储位置
+    dbPath: /opt/mongodb/data/db/
+    #是否一个库一个文件夹
+    directoryPerDB: true
+    #数据引擎
+    engine: wiredTiger
+    #WT引擎配置
+    wiredTiger:
+        engineConfig:
+            #WT最大使用cache（根据服务器实际情况调节）
+            cacheSizeGB: 1
+            #是否将索引也按数据库名单独存储
+            directoryForIndexes: true
+        #表压缩配置
+        collectionConfig:
+            blockCompressor: zlib
+        #索引配置
+        indexConfig:
+            prefixCompression: true
+
+#端口配置
+net:
+    #绑定之后只允许本机连接
+    #bindIp: 127.0.0.1
+    port: 27017
+
+processManagement:
+    fork: true
+```
+
+
+
 
 
