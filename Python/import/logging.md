@@ -207,7 +207,7 @@ format=%(asctime)s %(levelname)s %(message)s
 
 备注：
 
-* [修改源代码使得logging支持timerote](https://www.jianshu.com/p/d615bf01e37b)
+* [修改源代码使得logging支持](https://www.jianshu.com/p/d615bf01e37b)多进程RotatingFileHandler
 
 
 
