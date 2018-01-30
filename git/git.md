@@ -124,8 +124,8 @@ $ git config --golbal
     autocrlf = input
 [push]
     default = upstream
-    
-    
+
+
 [user]
     name = 
     email = 
@@ -149,7 +149,6 @@ $ git config --golbal
     dump = cat-file -p
 [merge]
      tool = vimdiff
-
 ```
 
 git tag
