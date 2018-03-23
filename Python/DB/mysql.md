@@ -38,5 +38,17 @@ except MySQLdb.Error,e:
      print "Mysql Error %d: %s" % (e.args[0], e.args[1])
 ```
 
+SQL
+
+http://www.runoob.com/sql/sql-where.html
+
+```
+SELECT column_name,column_name
+FROM table_name
+WHERE column_name operator value;
+
+# WHERE BETWEEN: 在某个范围内  LIKE：搜索某种模式  IN:指定针对某个列的多个可能值
+```
+
 
 
