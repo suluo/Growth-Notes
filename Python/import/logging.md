@@ -27,7 +27,7 @@ logging.getLogger(__name__).addHandler(console)
 
 
 # file
-fileHandler = logging.FileHanlder("/data_dump.log", mode="w")
+fileHandler = logging.FileHandler("/data_dump.log", mode="w")
 fileHandler.setLevel(logging.INFO)
 formatter = logging.Formatter("")
 fileHandler.setFormatter(formatter)
