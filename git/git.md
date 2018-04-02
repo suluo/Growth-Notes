@@ -172,6 +172,7 @@ $ git push origin –tags # 将本地所有标签一次性提交到git服务器
 #### 回退
 
 ```
+$ git reset HEAD~1 # 撤销最近n次commit并本地保留代码
 $ git reset HEAD^  # 撤销最近一次提交(即退回到上一次版本)并本地保留代码
 
 $ git log     # 查看历史版本 假设id=139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96
