@@ -32,6 +32,7 @@ try:
     conn=MySQLdb.connect(host='localhost',user='root',passwd='root',db='test',port=3306)
     cur=conn.cursor()
     cur.execute('select * from user')
+    result = cur.fetchall()
     cur.close()
     conn.close()
 except MySQLdb.Error,e:
@@ -40,7 +41,7 @@ except MySQLdb.Error,e:
 
 SQL
 
-http://www.runoob.com/sql/sql-where.html
+[http://www.runoob.com/sql/sql-where.html](http://www.runoob.com/sql/sql-where.html)
 
 ```
 SELECT column_name,column_name
