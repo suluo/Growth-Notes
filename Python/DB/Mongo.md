@@ -144,6 +144,29 @@ for item in db.sample.find():
     print item
 ```
 
+#### mongo查询问题
+
+```
+默认 mongo server维护连接的时间窗口是十分钟
+默认 单次从 server获取数据是101条或者 大于1M小于16M的数据
+所以默认情况下，如果10分钟内未能处理完数据，则抛出该异常。
+
+
+解决办法：
+1. 修改每批次获取数据量的条数，即batch size:
+collection.find(condition).batch_size(5)
+批量数需 估算十分钟内能处理的数据量
+
+2. 延长超时时间 需显示的关闭cursor
+cursor=db.images.find({}{'id':1,'image_path':1,'_id':0},no_cursor_timeout=True)
+for i in cursor:
+   .....
+   .....
+cursor.close()
+```
+
+#### 
+
 #### 随机记录
 
 [获取随机记录三种方法](https://www.cnblogs.com/tr0217/p/4731486.html)
