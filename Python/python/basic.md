@@ -88,5 +88,139 @@ p1（1，2，3，dict）
 列表表达式：[for x in for y in ]for x in是内层
 ```
 
+#### 常用
+
+```
+# 队列
+from collections import deque
+deque(maxlen=N)
+
+# 最大最小
+import heapq
+nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
+print(heapq.nlargest(3, nums)) # Prints [42, 37, 23]
+print(heapq.nsmallest(3, nums)) # Prints [-4, 1, 2]
+
+min(prices, key=lambda k: prices[k]) # Returns 'FB'
+max(prices, key=lambda k: prices[k]) # Returns 'AAPL'
+
+# 默认值类型字典
+from collections import defaultdict
+d = defaultdict(list)
+# 有序字典
+from collections import OrderedDict
+d = OrderedDict()
+
+# 只能访问一次
+zip(a, b)
+
+# 
+a = {'x' : 1,'y' : 2,'z' : 3}
+b = {'w' : 10,'x' : 11,'y' : 2}
+# Make a new dictionary with certain keys removed
+c = {key:a[key] for key in a.keys() - {'z', 'w'}}
+# c is {'x': 1, 'y': 2}
+
+from collections import Counter
+word_counts = Counter(words)
+# 出现频率最高的3个单词
+top_three = word_counts.most_common(3)
+print(top_three)
+# Outputs [('eyes', 8), ('the', 5), ('look', 4)]
+
+# 数据分组
+from itertools import groupby
+
+# random
+shuffle() 打断顺序
+
+# 生成器
+from itertools import permutations
+from itertools import combinations
+reversed() 反向迭代
+dropwhile() 跳过开头
+islice() 切片
+permutations() 打乱顺序
+combinations 选择元素
+combinations_with_replacement 同一元素可选择多次
+enumerate
+zip(a, b)
+zip_longest(a, b) a,b长度不一致
+from itertools import chain
+chain()  多个对象执行相同的操作for i in chain(a, b)
+heapq.merge(a, b) a,b 排序序列，比chain()多了排序
+iter 函数一个鲜为人知的特性是它接受一个可选的 callable 对象和一个标记(结尾)值作为输入参数
+
+
+yield from
+
+
+# io
+import os.path
+# Get all regular files
+names = [name for name in os.listdir('somedir')
+        if os.path.isfile(os.path.join('somedir', name))]
+
+from pprint import pprint
+
+# 注解
+def add(x:int, y:int) -> int:
+    return x + y
+```
+
+#### 读写文件
+
+```
+# csv
+with open('stocks.csv') as f:
+    f_csv = csv.reader(f)
+    headers = next(f_csv)
+    for row in f_csv:
+        # Process row
+        ...
+
+from collections import namedtuple
+with open('stock.csv') as f:
+    f_csv = csv.reader(f)
+    headings = next(f_csv)
+    Row = namedtuple('Row', headings)
+    for r in f_csv:
+        row = Row(*r)
+        # Process row
+        ...
+
+# Example of reading tab-separated values
+with open('stock.tsv') as f:
+    f_tsv = csv.reader(f, delimiter='\t')
+    for row in f_tsv:
+        # Process row
+        ...
+
+
+headers = ['Symbol','Price','Date','Time','Change','Volume']
+rows = [('AA', 39.48, '6/11/2007', '9:36am', -0.18, 181800),
+         ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500),
+         ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000),
+       ]
+with open('stocks.csv','w') as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(headers)
+    f_csv.writerows(rows)
+    
+headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
+rows = [{'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.18, 'Volume':181800},
+        {'Symbol':'AIG', 'Price': 71.38, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.15, 'Volume': 195500},
+        {'Symbol':'AXP', 'Price': 62.58, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.46, 'Volume': 935000},
+        ]
+
+with open('stocks.csv','w') as f:
+    f_csv = csv.DictWriter(f, headers)
+    f_csv.writeheader()
+    f_csv.writerows(rows)
+```
+
 
 
