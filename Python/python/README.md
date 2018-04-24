@@ -6,8 +6,8 @@ python
 wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
 tar -xzf Python-2.7.14.tgz
 cd Python-2.7.14
-mkdir -p /home/suluo/masi/.local 
-./configure --prefix="/home/suluo/masi/.local"
+mkdir -p /home/suluo/.local 
+./configure --prefix="/home/suluo/.local"
 make
 make install
 ```
@@ -19,7 +19,7 @@ wget --no-check-certificate https://pypi.python.org/packages/e9/c3/5986db56819bd
 unzip setuptools-38.2.5   
 ## tar -xzvf setuptools-2.0.tar.gz
 cd setuptools-38.2.5
-/home/suluo/masi/.local/bin/python setup.py install
+/home/suluo/.local/bin/python setup.py install
 ```
 
 pip
@@ -28,7 +28,7 @@ pip
 wget --no-check-certificate https://pypi.python.org/packages/41/27/9a8d24e1b55bd8c85e4d022da2922cb206f183e2d18fee4e320c9547e751/pip-8.1.1.tar.gz#md5=6b86f11841e89c8241d689956ba99ed7
 tar -xzf pip-8.1.1.tar.gz
 cd pip-8.1.1
-/home/suluo/masi/.local/bin/python setup.py install
+/home/suluo/.local/bin/python setup.py install
 ```
 
 路径
@@ -36,7 +36,7 @@ cd pip-8.1.1
 ```
 # 路径设置
 .bash_profile
-export PATH=$HOME/masi/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 ```
 
 
