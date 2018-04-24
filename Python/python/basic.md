@@ -206,7 +206,7 @@ with open('stocks.csv','w') as f:
     f_csv = csv.writer(f)
     f_csv.writerow(headers)
     f_csv.writerows(rows)
-    
+
 headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
 rows = [{'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007',
         'Time':'9:36am', 'Change':-0.18, 'Volume':181800},
@@ -220,6 +220,26 @@ with open('stocks.csv','w') as f:
     f_csv = csv.DictWriter(f, headers)
     f_csv.writeheader()
     f_csv.writerows(rows)
+    
+    
+foo-package/
+    spam/
+        blah.py
+
+bar-package/
+    spam/
+        grok.py
+>>> import sys
+>>> sys.path.extend(['foo-package', 'bar-package'])
+>>> import spam.blah
+>>> import spam.grok
+
+# 安装私有包
+Python有一个用户安装目录，通常类似”~/.local/lib/python3.3/site-packages”。 要强制在这个目录中安装包，可使用安装选项“–user”。例如：
+python3 setup.py install --user
+或者
+pip install --user packagename
+在sys.path中用户的“site-packages”目录位于系统的“site-packages”目录之前。 因此，你安装在里面的包就比系统已安装的包优先级高 （尽管并不总是这样，要取决于第三方包管理器，比如distribute或pip）。
 ```
 
 

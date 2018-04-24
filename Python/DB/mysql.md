@@ -37,6 +37,10 @@ try:
     conn.close()
 except MySQLdb.Error,e:
      print "Mysql Error %d: %s" % (e.args[0], e.args[1])
+     
+# python3
+$ pip install PyMySQL
+import pymysql
 ```
 
 SQL
