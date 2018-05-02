@@ -34,10 +34,9 @@ GETRANGE key start end
 MGET key1 key2
 MSET key1 value1 key2 value2
 INCR KEY # key中数字值加1
-
 ```
 
-Python redis   
+Python redis
 
 [Python操作redis](https://www.cnblogs.com/melonjiang/p/5342505.html)
 

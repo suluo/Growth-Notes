@@ -1,5 +1,3 @@
-
-
 主函数
 
 ```
@@ -42,10 +40,10 @@ class stopHandler(tornado.web.RequestHandler):
         self.logger.info("Server stop")
         self.finish("finish will work")
         tornado.ioloop.IOLoop.instance().stop()
-        
+
         ioloop = tornado.ioloop.IOLoop.instance()
         ioloop.add_callback(ioloop.stop)
-                
+
         ioloop.add_callback(lambda x: x.stop(), iploop)
 
 
@@ -87,20 +85,24 @@ def main():
         http_server = tornado.httpserver.HTTPServer(Application(),
                                                     xheaders=True)
         http_server.listen(options.port)
-        # http_server.start(0) ### 参数为零则建立num_process个进程，一般=4
     else:
-        sockets = tornado.netutil.bind_sockets(options.port)
-        tornado.process.fork_processes(options.num)
         http_server = tornado.httpserver.HTTPServer(Application(),
                                                     xheaders=True)
-        http_server.add_sockets(sockets)
+        http_server.bind(options.port)
+        http_server.start(options.num)    ### 参数为零则建立num_process个进程，一般=4
+        
+        # sockets = tornado.netutil.bind_sockets(8888)
+        # tornado.process.fork_processes(0)
+        # server = HTTPServer(app)
+        # server.add_sockets(sockets)
+        # IOLoop.current().start()
+
 
     tornado.ioloop.IOLoop.instance().start()
 
 
 if __name__ == '__main__':
     main()
-
 ```
 
 
