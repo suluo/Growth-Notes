@@ -3,9 +3,11 @@
 python
 
 ```
-wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
-tar -xzf Python-2.7.14.tgz
-cd Python-2.7.14
+wget https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tgz
+wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz
+
+tar -xzf Python-2.7.15.tgz
+cd Python-2.7.15
 mkdir -p /home/suluo/.local 
 ./configure --prefix="/home/suluo/.local"
 make
@@ -37,6 +39,19 @@ cd pip-8.1.1
 # 路径设置
 .bash_profile
 export PATH=$HOME/.local/bin:$PATH
+```
+
+swig
+
+[swig 无root](http://www.voidcn.com/article/p-xkijjfbj-eu.html)
+
+```
+wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz
+tar -xzvf swig-3.0.12.tar.gz
+cd swig-3.0.12/
+#我们这里只编译Python的语言支持，可以根据你得需要加别的！
+./configure --without-alllang --with-python|grep python
+make && make install
 ```
 
 

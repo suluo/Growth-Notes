@@ -1,3 +1,11 @@
+tornado 高并发
+
+[线程](https://blog.csdn.net/qq_28893679/article/details/69437496)
+
+[进程 or celery](https://www.cnblogs.com/hepingqingfeng/p/6655790.html)
+
+
+
 多线程多进程
 
 进程
@@ -34,7 +42,7 @@ if __name__ == "__main__":
     #是否阻塞方式执行， 如果有， 则阻塞方式， 否则非阻塞
     pro.join() #if has this, it's synchronous operation or asynchronous operation
     print "Process end"
-    
+
 # 进程类
 # 通过继承Process类，来自定义进程类，实现run方法。实例p通过调用p.start()时自动调用run方法。 
 import multiprocessing
@@ -53,7 +61,6 @@ if __name__ == '__main__':
         p.start()
     for j in jobs:
         j.join()
-
 ```
 
 进程池

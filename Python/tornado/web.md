@@ -85,21 +85,22 @@ def main():
         http_server = tornado.httpserver.HTTPServer(Application(),
                                                     xheaders=True)
         http_server.listen(options.port)
+        tornado.ioloop.IOLoop.instance().start()
     else:
         http_server = tornado.httpserver.HTTPServer(Application(),
                                                     xheaders=True)
         http_server.bind(options.port)
         http_server.start(options.num)    ### 参数为零则建立num_process个进程，一般=4
-        
+
         # sockets = tornado.netutil.bind_sockets(8888)
         # tornado.process.fork_processes(0)
         # server = HTTPServer(app)
         # server.add_sockets(sockets)
         # IOLoop.current().start()
+        tornado.ioloop.IOLoop.current().start()
 
 
-    tornado.ioloop.IOLoop.instance().start()
-
+    
 
 if __name__ == '__main__':
     main()
