@@ -1,5 +1,3 @@
-
-
 #### tmux
 
 [非root用户源码安装Tmux](http://www.jianshu.com/p/f7f24b4b2625)

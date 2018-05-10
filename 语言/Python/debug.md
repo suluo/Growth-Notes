@@ -1,3 +1,11 @@
+#### print
+
+```py
+## 行号
+import sys
+print sys._getframe().f_lineno
+```
+
 #### [时间与日期处理](http://www.wklken.me/posts/2015/03/03/python-base-datetime.html)
 
 ### 计时器
@@ -36,8 +44,8 @@ class Timer:
 
     def __exit__(self, *args):
         self.stop()
-        
-        
+
+
 def countdown(n):
     while n > 0:
         n -= 1
