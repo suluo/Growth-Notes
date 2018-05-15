@@ -158,7 +158,7 @@ collection.find(condition).batch_size(5)
 批量数需 估算十分钟内能处理的数据量
 
 2. 延长超时时间 需显示的关闭cursor
-cursor=db.images.find({}{'id':1,'image_path':1,'_id':0},no_cursor_timeout=True)
+cursor=db.images.find({}, {'id':1,'image_path':1,'_id':0}, no_cursor_timeout=True)
 for i in cursor:
    .....
    .....
