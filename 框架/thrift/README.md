@@ -1,21 +1,14 @@
-student.thrift
-
-```
-struct Student{
- 1: i32 sno,
- 2: string sname,
- 3: bool ssex,
- 4: i16 sage,
-}
-service Serv{
- i32 put(1: Student s),
-}
-```
-
-```
-# 生成 server simple
-thrift -r --gen c++ student.thrift
-```
 
 
+[libevent](http://www.cnblogs.com/linjiqin/p/6943927.html) 安装
+
+```
+yum install automake libtool flex bison pkgconfig gcc-c++ boost-devel libevent-devel zlib-devel python-devel ruby-devel
+```
+
+[thrift 源码安装](http://thrift.apache.org/lib/cpp)
+
+
+
+另外：[ boost.python](https://blog.csdn.net/ccat/article/details/534748)
 
