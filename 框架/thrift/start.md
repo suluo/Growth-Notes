@@ -17,6 +17,7 @@ service Serv{
 ```
 # 生成 server simple
 thrift -r --gen c++ student.thrift
+thrift -r -strict –gen cpp:cob_style -o ./ student.thrift
 
 # 生成 客户端
 thrift -r --gen py student.thrift
