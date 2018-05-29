@@ -34,7 +34,7 @@ class DemoHandler(tornado.web.RequestHandler):
             self.write(sio.getvalue())
         finally:
             self.finish()
-            
+
     @tornado.gen.coroutine
     def generate_excel(self, head, items):
         style_bold = xlwt.easyxf('font:bold 1')
@@ -57,7 +57,7 @@ class DemoHandler(tornado.web.RequestHandler):
         sio = StringIO.StringIO()
         workbook.save(sio)
         raise gen.Return(sio)
-        
+
     @tornado.gen.coroutine
     def generate_xlsx(self, head, items):
         workbook = Workbook()
