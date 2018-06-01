@@ -65,7 +65,12 @@ $ git status -uno
 $ git commit -m "message"
 $ git commit -a
 $ git commit -a -amend  # 对最近一次commit进行修改
-$ 
+
+# 安装commit message格式工具
+$ npm install -g commitizen
+# 项目目录下
+$ commitizen init cz-conventional-changelog --save --save-exact
+$ git cz
 ```
 
 ##### git stash
