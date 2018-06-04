@@ -6,6 +6,9 @@
 
 ```
 # http://blog.sina.com.cn/s/blog_403aa80a0101h7y9.html
+# root 用户
+$ yum install libevent-devel ncurses-devel
+$ yum install tmux
 ```
 
 #### rz sz
