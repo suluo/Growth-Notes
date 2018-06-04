@@ -61,16 +61,16 @@ $ git status -uno
 
 [message 规范](https://ivweb.io/topic/58abda9d2117ae2f4995b4a8)
 
+[commitizen 安装配置](https://zhuanlan.zhihu.com/p/34223150)
+
 ```
 $ git commit -m "message"
 $ git commit -a
 $ git commit -a -amend  # 对最近一次commit进行修改
 
 # 安装commit message格式工具
-$ npm install -g commitizen
-# 项目目录下
-$ commitizen init cz-conventional-changelog --save --save-exact
-$ git cz
+$ npm install -g commitizen cz-conventional-changelog
+$ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
 ##### git stash

@@ -10,8 +10,7 @@ tar -xzf Python-2.7.15.tgz
 cd Python-2.7.15
 mkdir -p /home/suluo/.local 
 ./configure --prefix="/home/suluo/.local"
-make
-make install
+make && make install
 ```
 
 setuptools
