@@ -53,17 +53,17 @@ keys=root,tornado
 
 [logger_root]
 level=INFO
-handlers=ConsoleHandler,timeHandler,fileHandler
+handlers=ConsoleHandler,timeHandler,fileHandler,ConcurrentHandler
 
 [logger_tornado]
 level=INFO
-handlers=ConsoleHandler,timeHandler,fileHandler
+handlers=ConsoleHandler,timeHandler,fileHandler,ConcurrentHandler
 qualname=tornado
 propagate=0
 
 ###############################################
 [handlers]
-keys=ConsoleHandler,fileHandler,RotateHandler,timeHandler
+keys=ConsoleHandler,fileHandler,RotateHandler,timeHandler,ConcurrentHandler
 
 [handler_ConsoleHandler]
 class=StreamHandler
@@ -90,6 +90,12 @@ level=INFO
 formatter=fmt01
 #args=('./log/tst.log','S',20,10)
 args=('./log/tornado.log','midnight',1,30)
+
+[handler_ConcurrentHandler]
+class=handlers.ConcurrentRotatingFileHandler
+level=INFO
+formatter=form01
+args=("./log/concurrent.log", "a", 10*1024*1024, 20)
 ###############################################
 [formatters]
 keys=fmt01,fmt03
