@@ -9,10 +9,18 @@ filename=server_name.py
 Running_pids=$(pgrep -f ${filename})
 #running_pids=$(lsof -i:10310 | awk '{print $2}' | grep -v PID | uniq -c)
 # ping -c 1 -w 1 ip:port &>/dev/null && result=0 || result=1
+
+Cpu_nums=$(/proc/cpuinfo | grep "processor" | wc -l)
+echo -n "logical CPU number in total: $Cpu_nums"
+multi_nums=$[$Cpu_nums-1]
+echo -n "advice Multi_process num: $multi_nums"
+
 if [ -n "$Running_pids" ];then
     echo "Had Running_pids:$Running_pids"
 else
     nohup python2.7 ${filename} >>../log/tornado.log 2>&1 &
+    multi_num=$()
+    nohup python2.7 ${filename} -port=port -dev=False -num=${Cpu_nums-1} >> ./log/tornado.log 2>&1 &
     #nohup python2.7 ${filename} -port=port -log_file_prefix=../log/tornado@port.log > ../log/tornado.log 2>&1 &
 #    sleep 1
     running_pids=$(pgrep -f ${filename})
