@@ -40,18 +40,18 @@ class DemoHandler(tornado.web.RequestHandler):
         style_bold = xlwt.easyxf('font:bold 1')
         workbook = xlwt.Workbook(encoding='utf-8')
         workbook.country_code = 86
-        for key, value in items.iteritems():
-            worksheet = workbook.add_sheet(slot, cell_overwrite_ok=False)  # True 则可以覆盖
+        for key, value in items.items():
+            worksheet = workbook.add_sheet(key, cell_overwrite_ok=False)  # True 则可以覆盖
             worksheet.fit_width_to_pages = True
             for col in range(0, 4):
-            worksheet.write(0, col, head[col], style_bold)
+                worksheet.write(0, col, head[col], style_bold)
             # 自定义函数
             # WriteSheetRow(worksheet, head, 0, True)
             # for row in range(1, len(items) + 1):
             #     ValueList = [value].extend(items[row-1])
             #     WriteSheetRow(worksheet, ValueList, row, False)
             for row in range(1, len(value)+1):
-                worksheet.write(row, 0, slot, style_bold)
+                worksheet.write(row, 0, key, style_bold)
                 for col in range(1, 4):
                     worksheet.write(row, col, value[row-1][col-1], style_bold)
         sio = StringIO.StringIO()
@@ -64,8 +64,8 @@ class DemoHandler(tornado.web.RequestHandler):
         workbook.country_code = 86
         i = 0
 
-        for key, valuelist in items.iteritems():
-            sheet = workbook.create_sheet(slot, i)
+        for key, valuelist in items.items():
+            sheet = workbook.create_sheet(key, i)
             sheet.append(head)
             for row in range(1, len(valuelist)+1):
                 item_row = [key] + valuelist[row-1]
