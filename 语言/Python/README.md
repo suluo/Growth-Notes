@@ -1,3 +1,5 @@
+[Anaconda 教程命令](https://blog.csdn.net/u012151283/article/details/54145347)
+
 [Linux 个人目录下安装python](http://blog.csdn.net/dream_angel_z/article/details/51338546)
 
 python
@@ -53,5 +55,5 @@ cd swig-3.0.12/
 make && make install
 ```
 
-
+[生成requirement](https://my.oschina.net/zhangzhe/blog/413781) 
 
