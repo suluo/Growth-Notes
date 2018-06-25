@@ -74,5 +74,43 @@ log.xml
 </logging>
 ```
 
+log.go\_v2
+
+```
+package main
+import (
+    "fmt"
+    log "github.com/skoo87/log4go"
+)
+
+func main() {
+    if err := log.SetupLogWithConf("./log.json"); err != nil {
+        panic(err)
+    }
+    var name = "skoo"
+    log.Debug("log4go by %s", name)
+    log.Info("log4go by %s", name)
+    log.Warn("log4go by %s", name)
+    log.Error("log4go by %s", name)
+    log.Fatal("log4go by %s", name)
+}
+```
+
+log.json
+
+```
+{
+    "LogLevel": "info",
+    "FileWriter": {
+        "LogPath": "log-%Y%M%D.log",
+        "On": true
+    },
+
+    "ConsoleWriter": {
+        "On": true
+    }
+}
+```
+
 
 
