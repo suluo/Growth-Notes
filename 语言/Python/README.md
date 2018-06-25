@@ -5,7 +5,7 @@ wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
 sh Anaconda3-5.2.0-Linux-x86_64.sh
 
 # 创建新环境 conda create --name <env_name> <package_names>
-conda create -n python2 python=2.7 numpy pandas、
+conda create -n python2 python=2.7 numpy pandas
 # 切换环境 source activate <env_name>
 source activate python2
 # 退出环境
