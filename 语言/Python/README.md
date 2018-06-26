@@ -19,6 +19,19 @@ conda update --all
 conda update <package_name>
 ```
 
+[生成requirement](https://my.oschina.net/zhangzhe/blog/413781)
+
+```
+#方法一
+$ pip freeze > requirements.txt
+#方法二
+$ pip install pipreqs
+$ pipreqs /path/to/projectr
+# 方法三
+$ pip install pigar
+$ pigar
+```
+
 [Linux 个人目录下安装python](http://blog.csdn.net/dream_angel_z/article/details/51338546)
 
 python
@@ -72,19 +85,6 @@ cd swig-3.0.12/
 #我们这里只编译Python的语言支持，可以根据你得需要加别的！
 ./configure --without-alllang --with-python|grep python
 make && make install
-```
-
-[生成requirement](https://my.oschina.net/zhangzhe/blog/413781)
-
-```
-#方法一
-$ pip freeze > requirements.txt
-#方法二
-$ pip install pipreqs
-$ pipreqs /path/to/projectr
-# 方法三
-$ pip install pigar
-$ pigar
 ```
 
 
