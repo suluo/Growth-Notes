@@ -17,6 +17,9 @@ conda env list
 # 更新包
 conda update --all
 conda update <package_name>
+
+# 删除环境 conda remove -n <env_name> --all
+conda remove -n py36 --all
 ```
 
 [生成requirement](https://my.oschina.net/zhangzhe/blog/413781)

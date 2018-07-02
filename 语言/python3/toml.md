@@ -1,0 +1,53 @@
+toml
+
+pip.toml
+
+```
+[dev-packages]
+pytest = "*"
+sphinx = "*"
+
+[packages]
+click = "*"
+crayons = "*"
+toml = "*"
+"delegator.py" = ">=0.0.6"
+requests = ">=2.4.0"
+requirements-parser = "*"
+parse = "*"
+pipfile = "==0.0.1"
+click-completion = "*"
+"backports.shutil-get-terminal-size" = "*"
+pew = ">=0.1.26"
+blindspin = "*"
+
+[requires]
+python_version = "2.7"
+```
+
+python读取
+
+```
+In [5]: toml.load(open('Pipfile'))
+Out[5]: 
+{u'dev-packages': {u'pytest': u'*', u'sphinx': u'*'},
+ u'packages': {u'backports.shutil-get-terminal-size': u'*',
+  u'blindspin': u'*',
+  u'click': u'*',
+  u'click-completion': u'*',
+  u'crayons': u'*',
+  u'delegator.py': u'>=0.0.6',
+  u'parse': u'*',
+  u'pew': u'>=0.1.26',
+  u'pipfile': u'==0.0.1',
+  u'requests': u'>=2.4.0',
+  u'requirements-parser': u'*',
+  u'toml': u'*'},
+ u'requires': {u'python_version': u'2.7'}}
+
+In [7]: toml.dumps(data)
+Out[7]: u'[dev-packages]\npytest = "*"\nsphinx = "*"\n[packages]\ncrayons = "*"\nrequirements-parser = "*"\n"backports.shutil-get-terminal-size" = "*"\n"delegator.py" = ">=0.0.6"\nblindspin = "*"\npew = ">=0.1.26"\nparse = "*"\ntoml = "*"\npipfile = "==0.0.1"\nrequests = ">=2.4.0"\nclick-completion = "*"\nclick = "*"\n[requires]\npython_version = "2.7"\n'
+```
+
+
+
