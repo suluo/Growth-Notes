@@ -61,6 +61,7 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 
 > db.sample.find().limit(NUMBER).skip(NUMBER).batchSize(1000) # limit 显示多少条数据，skip偏移量, 
 > db.sample.find().limit(NUMBER).batchSize(1000)  ##batchSize 一次取多少个数据
+> db.collection.find({description: /August [0-9]+, 1969/}).maxTimeMS(50) ## 查询超时时间
 ```
 
 ##### pymongo
@@ -142,6 +143,23 @@ db.sample.ensure_index({"createdAt": 1},{expireAfterSeconds: 300})
 
 for item in db.sample.find():
     print item
+    
+
+### 判断数据库是否存在
+myclient = pymongo.MongoClient('mongodb://localhost:27017/')
+
+dblist = myclient.database_names()
+if "runoobdb" in dblist:
+  print("数据库已存在！")
+
+### 判断集合是否存在
+myclient = pymongo.MongoClient('mongodb://localhost:27017/')
+ 
+mydb = myclient['runoobdb']
+ 
+collist = mydb.collection_names()
+if "sites" in collist:   # 判断 sites 集合是否存在
+  print("集合已存在！")
 ```
 
 #### mongo查询问题
