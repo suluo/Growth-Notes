@@ -1,6 +1,7 @@
 #### Redis命令
 
 ```
+$ ./redis-server ../redis.conf
 $ redis-cli -h host -p port -a password
 redis 127.0.0.1:6379>
 ### 监测redis是否启动

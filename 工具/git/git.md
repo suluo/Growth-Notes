@@ -16,6 +16,7 @@ $ git branch -vv # 查看分支映射关系
 $ git branch mybranch # 创建分支
 $ git branch -d mybranch # 删除分支
 $ git branch -D mybranch # 强制删除分支
+$ git push origin --delete mybranch # 删除远程分支
 
 # 建立当前分支与远程分支的映射关系
 $ git branch -u origin/addFile  
