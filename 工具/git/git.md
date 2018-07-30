@@ -72,6 +72,7 @@ $ git commit -a -amend  # 对最近一次commit进行修改
 # 安装commit message格式工具
 $ npm install -g commitizen cz-conventional-changelog
 $ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+git cz
 ```
 
 ##### git stash
