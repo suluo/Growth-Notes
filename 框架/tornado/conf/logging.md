@@ -92,7 +92,7 @@ formatter=fmt01
 args=('./log/tornado.log','midnight',1,30)
 
 [handler_ConcurrentHandler]
-class=handlers.ConcurrentRotatingFileHandler
+class=cloghandler.ConcurrentRotatingFileHandler
 level=INFO
 formatter=form01
 args=("./log/concurrent.log", "a", 10*1024*1024, 20)
