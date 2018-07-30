@@ -41,12 +41,12 @@ logging.info('Jackdaws love my big sphinx of quartz.')
 logger = logging.getLogger(__file__)
 ```
 
-* logging.config.fileConfig\("logging.conf"\)
+* logging.config.fileConfig\("logging.ini"\)
 
-logger.conf
+logger.ini
 
 ```
-#logger.conf
+#logger.ini
 ###############################################
 [loggers]
 keys=root,tornado
