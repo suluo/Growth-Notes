@@ -77,5 +77,18 @@ format=%(name)-12s: %(levelname)-8s %(message)s
 datefmt=
 ```
 
+formatter
+
+```
+levelname
+asctime
+module
+lineno
+name
+thread
+filename
+funcName
+```
+
 
 
