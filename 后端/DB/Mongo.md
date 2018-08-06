@@ -105,6 +105,7 @@ db.food.find({"fruit.2" : "peach"}) # 对数组的查询, 字段fruit中，第3�
 db.food.find({"fruit" : {"$size" : 3}}) # 对数组的查询, 查询数组元素个数是3的记录，$size前面无法和其他的操作符复合使用  
 db.users.findOne(criteria, {"comments" : {"$slice" : 10}}) # 对数组的查询，只返回数组comments中的前十条，还可以{"$slice" : -10}， {"$slice" : [23, 10]}; 分别返回最后10条，和中间10条  
 #### $elemMatch #嵌套查询，仅当嵌套的元素是数组时使用   
+
 db.blog.find({"comments" : {"$elemMatch" : {"author" : "joe", "score" : {"$gte" : 5}}}}) # 嵌套查询，仅当嵌套的元素是数组时使用,  
 db.foo.find({"$where" : "this.x + this.y == 10"}) # 复杂的查询，$where当然是非常方便的，但效率低下。对于复杂查询，考虑的顺序应当是 正则 -> MapReduce -> $where  
 db.foo.find({"$where" : "function() { return this.x + this.y == 10; }"}) # $where可以支持javascript函数作为查询条件  
@@ -143,7 +144,7 @@ db.sample.ensure_index({"createdAt": 1},{expireAfterSeconds: 300})
 
 for item in db.sample.find():
     print item
-    
+
 
 ### 判断数据库是否存在
 myclient = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -154,9 +155,9 @@ if "runoobdb" in dblist:
 
 ### 判断集合是否存在
 myclient = pymongo.MongoClient('mongodb://localhost:27017/')
- 
+
 mydb = myclient['runoobdb']
- 
+
 collist = mydb.collection_names()
 if "sites" in collist:   # 判断 sites 集合是否存在
   print("集合已存在！")

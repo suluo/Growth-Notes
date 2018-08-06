@@ -75,6 +75,7 @@ cd pip-8.1.1
 # 路径设置
 .bash_profile
 export PATH=$HOME/.local/bin:$PATH
+https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 swig
