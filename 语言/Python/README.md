@@ -22,7 +22,7 @@ conda update <package_name>
 conda remove -n py36 --all
 
 
-conda更快：https://blog.csdn.net/ada0915/article/details/78529877
+conda更快镜像：https://blog.csdn.net/ada0915/article/details/78529877
 ```
 
 [生成requirement](https://my.oschina.net/zhangzhe/blog/413781)
