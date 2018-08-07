@@ -20,6 +20,9 @@ conda update <package_name>
 
 # 删除环境 conda remove -n <env_name> --all
 conda remove -n py36 --all
+
+
+conda更快：https://blog.csdn.net/ada0915/article/details/78529877
 ```
 
 [生成requirement](https://my.oschina.net/zhangzhe/blog/413781)
