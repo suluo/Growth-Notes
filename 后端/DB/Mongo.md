@@ -126,6 +126,7 @@ db.col.update({'title':'MongoDB 教程'},{"$set":{'title':'MongoDB'}},{multi:tru
 
 ###
 db.collection_names()
+db.list_collection_names()
 
 ### 建立索引
 posts = db.posts
