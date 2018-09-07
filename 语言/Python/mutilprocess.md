@@ -4,8 +4,6 @@ tornado 高并发
 
 [进程 or celery](https://www.cnblogs.com/hepingqingfeng/p/6655790.html)
 
-
-
 多线程多进程
 
 进程
@@ -145,6 +143,13 @@ if __name__ == "__main__":
    ps.start()
    ps.join()
    pr.terminate()
+```
+
+共享内存
+
+```
+ctypes
+sharedctypes：https://blog.csdn.net/mydriverc2/article/details/50956865
 ```
 
 
