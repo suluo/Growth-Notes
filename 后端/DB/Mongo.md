@@ -62,6 +62,7 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db.sample.find().limit(NUMBER).skip(NUMBER).batchSize(1000) # limit 显示多少条数据，skip偏移量, 
 > db.sample.find().limit(NUMBER).batchSize(1000)  ##batchSize 一次取多少个数据
 > db.collection.find({description: /August [0-9]+, 1969/}).maxTimeMS(50) ## 查询超时时间
+
 ```
 
 ##### pymongo
@@ -123,6 +124,9 @@ db.sample.update({}, {})
 db.sample.update({"username": "lilei", {"$set":{"Email": "hanmeimei@163.com"}}})
 ## 如果你要修改多条相同的文档，则需要设置 multi 参数为 true
 db.col.update({'title':'MongoDB 教程'},{"$set":{'title':'MongoDB'}},{multi:true})
+
+# save
+db.sample.save() # 根据_id判断有则update， 无则insert
 
 ###
 db.collection_names()
