@@ -2,7 +2,8 @@ http:
 
 ```
 $ pip install tornado
-$ python -m SimpleHTTPServer 8802
+$ python2 -m SimpleHTTPServer 8802
+$ python3 -m http.server 8802
 ```
 
 ftp:
