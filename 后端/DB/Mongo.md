@@ -16,6 +16,7 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 
 ### 查看全部collections
 > db.collection_names()
+## 注意：collection_names 在最新版本的 Python 中已废弃，Python3.7+ 之后的版本改为了 list_collection_names()。
 
 ### find 
 ### $in & $nin; $or & $and; $mod & $not; $ne $exists
@@ -62,7 +63,6 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db.sample.find().limit(NUMBER).skip(NUMBER).batchSize(1000) # limit 显示多少条数据，skip偏移量, 
 > db.sample.find().limit(NUMBER).batchSize(1000)  ##batchSize 一次取多少个数据
 > db.collection.find({description: /August [0-9]+, 1969/}).maxTimeMS(50) ## 查询超时时间
-
 ```
 
 ##### pymongo
