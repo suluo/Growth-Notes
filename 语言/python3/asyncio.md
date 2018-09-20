@@ -72,5 +72,11 @@ if __name__ == '__main__':
     loop.close()
 ```
 
+python3.7 +
+
+```
+asyncio.run(main()) # main 异步函数，调起异步函数获取结果
+```
+
 
 
