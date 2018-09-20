@@ -1,5 +1,5 @@
 ```
-#logger.conf
+#logger.ini
 ###############################################
 [loggers]
 keys=root,tornado
