@@ -13,10 +13,16 @@ make
 sudo make install
 
 
-$ ls -al /usr/lib | grep libevent 
+$ ls -al /usr/lib | grep libevent
 ```
 
 [thrift 源码安装](http://thrift.apache.org/lib/cpp)
 
 另外：[ boost.python](https://blog.csdn.net/ccat/article/details/534748)
+
+
+
+thirt not support py3解决方案
+
+https://github.com/eleme/thriftpy
 
