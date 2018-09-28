@@ -41,13 +41,25 @@ Python redis
 
 [Python操作redis](https://www.cnblogs.com/melonjiang/p/5342505.html)
 
+https://www.jianshu.com/p/2639549bedc8
+
 ```py
 from redis import Redis
 redis = Redis(host="", port=6379, db=0, password="")
 
+# 连接池
+pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
+r = redis.Redis(connection_pool=pool)
+r.set('food', 'beef', px=3)
+# ex，过期时间（秒）
+# px，过期时间（毫秒）
+# nx，如果设置为True，则只有name不存在时，当前set操作才执行
+# xx，如果设置为True，则只有name存在时，当前set操作才执行
+
 # 集合
 redis.srandmember('key', 2) # 从key中随机获取2个元素
 redis.srem('key', 'bb', 'dd') # 从key中删除bb，dd
+redis.
 
 
 # 事务
