@@ -224,10 +224,15 @@ $ git remote -v
 
 git submodule
 
-https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97
+[https://git-scm.com/book/zh/v2/Git-工具-子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块)
 
 ```
-git submodule add https://github.com/chaconinc/DbConnector
+# 添加
+git submodule add https://github.com/chaconinc/DbConnector chaconinc/DbConnector
+
+
+# 递归克隆子项目
+git clone git@github.com:jjz/pod-project.git --recursive
 ```
 
 
