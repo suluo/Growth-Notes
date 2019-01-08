@@ -63,6 +63,17 @@ $ mongo 192.168.1.200:27017/database -u user -p password
 > db.sample.find().limit(NUMBER).skip(NUMBER).batchSize(1000) # limit 显示多少条数据，skip偏移量, 
 > db.sample.find().limit(NUMBER).batchSize(1000)  ##batchSize 一次取多少个数据
 > db.collection.find({description: /August [0-9]+, 1969/}).maxTimeMS(50) ## 查询超时时间
+> db.example.update(
+    {},
+    {$unset: {words:1}},
+    false,
+    true)    ## 删除某个字段
+需要重命名collection中某个字段,则可以用:
+> db.example.update(
+    {}, 
+    {$rename:{"name.old":"name.new"}}, 
+    false, 
+    true);
 ```
 
 ##### pymongo
