@@ -14,34 +14,37 @@ Redis常用命令
 redis 127.0.0.1:6379> COMMAND KEY_NAME
 
 # key
-set key value
-del key  # 删除key
-exists key # 检查key存在
+> set key value
+> del key  # 删除key
+> exists key # 检查key存在
 
-Expire key time_in_seconds  #给key设置过期时间
-PERSIST key # 移除key的过期时间
-PTTL key # 查看key剩余过期时间
-TTL key # 剩余生存时间
+> Expire key time_in_seconds  #给key设置过期时间
+> PERSIST key # 移除key的过期时间
+> PTTL key # 查看key剩余过期时间
+> TTL key # 剩余生存时间
 
-RANDOMKEY # 返回随机的key
-TYPE key # 返回key的类型
-RENAME key1 key2 # key1 改名key2
-keys ten* ## 查看以ten开头的keys *可以用pattern
+> RANDOMKEY # 返回随机的key
+> TYPE key # 返回key的类型
+> RENAME key1 key2 # key1 改名key2
+> keys ten* ## 查看以ten开头的keys *可以用pattern
 
 # string
-set key value
-get key
-GETRANGE key start end
-MGET key1 key2
-MSET key1 value1 key2 value2
-INCR KEY # key中数字值加1
+> set key value
+> get key
+> GETRANGE key start end
+> MGET key1 key2
+> MSET key1 value1 key2 value2
+> INCR KEY # key中数字值加1
+
+# Zrank 返回有序集中指定成员的排名。
+> ZRANK key member
 ```
 
 Python redis
 
 [Python操作redis](https://www.cnblogs.com/melonjiang/p/5342505.html)
 
-https://www.jianshu.com/p/2639549bedc8
+[https://www.jianshu.com/p/2639549bedc8](https://www.jianshu.com/p/2639549bedc8)
 
 ```py
 from redis import Redis
@@ -68,5 +71,21 @@ pipeline = redis.pipeline()
 pipeline.execute()
 ```
 
+发布订阅
 
+简单发布订阅
+
+https://blog.csdn.net/xiemanR/article/details/73380058
+
+[https://www.cnblogs.com/bigberg/p/8298411.html](https://www.cnblogs.com/bigberg/p/8298411.html)
+
+发布订阅封装
+
+https://segmentfault.com/a/1190000016898228
+
+
+
+生产者消费者
+
+https://www.jianshu.com/p/9c04890615ba
 
