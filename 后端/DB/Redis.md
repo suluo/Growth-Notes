@@ -75,17 +75,17 @@ pipeline.execute()
 
 简单发布订阅
 
-https://blog.csdn.net/xiemanR/article/details/73380058
+[https://blog.csdn.net/xiemanR/article/details/73380058](https://blog.csdn.net/xiemanR/article/details/73380058)
 
 [https://www.cnblogs.com/bigberg/p/8298411.html](https://www.cnblogs.com/bigberg/p/8298411.html)
 
 发布订阅封装
 
-https://segmentfault.com/a/1190000016898228
-
-
+[https://segmentfault.com/a/1190000016898228](https://segmentfault.com/a/1190000016898228)
 
 生产者消费者
 
-https://www.jianshu.com/p/9c04890615ba
+[https://www.jianshu.com/p/9c04890615ba](https://www.jianshu.com/p/9c04890615ba)
+
+http://xzane.cc/2016/08/26/%E5%88%A9%E7%94%A8redis%E6%9E%84%E5%BB%BA%E5%A4%9A%E6%B6%88%E8%B4%B9%E8%80%85%E8%AF%B7%E6%B1%82%E9%98%9F%E5%88%97/
 
