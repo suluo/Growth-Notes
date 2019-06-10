@@ -233,6 +233,9 @@ git submodule add https://github.com/chaconinc/DbConnector chaconinc/DbConnector
 
 # 递归克隆子项目
 git clone git@github.com:jjz/pod-project.git --recursive
+
+# 下载子项目
+git submodule update --init --recursive
 ```
 
 
