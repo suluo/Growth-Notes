@@ -236,6 +236,13 @@ git clone git@github.com:jjz/pod-project.git --recursive
 
 # 下载子项目
 git submodule update --init --recursive
+
+# 更新子项目
+# 父目录下运行
+git submodule foreach git pull
+# 子目录下运行 git submodule init
+git submodule update
+
 ```
 
 
