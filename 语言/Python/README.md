@@ -25,19 +25,6 @@ conda remove -n py36 --all
 conda更快镜像：https://blog.csdn.net/ada0915/article/details/78529877
 ```
 
-[生成requirement](https://my.oschina.net/zhangzhe/blog/413781)
-
-```
-#方法一
-$ pip freeze > requirements.txt
-#方法二
-$ pip install pipreqs
-$ pipreqs /path/to/projectr
-# 方法三
-$ pip install pigar
-$ pigar
-```
-
 [Linux 个人目录下安装python](http://blog.csdn.net/dream_angel_z/article/details/51338546)
 
 python

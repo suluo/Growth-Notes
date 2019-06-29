@@ -1,3 +1,12 @@
+协程模块
+
+支持协程的模块
+
+```
+https://github.com/aio-libs
+aioredis、aiohttp、aioes、aiocassandra、aiomysql等等
+```
+
 #### asyncio.coroutine和yield from
 
 ```
