@@ -14,8 +14,8 @@ def timethis(func):
         print("%s taks cpu：%s wall：%s".format(func.__name__, time.clock()-t0, time.time()-t1))
         return result
     return wrapper
-    
-    
+
+
 # 使用类中的方法    
 import time
 from functools import wraps
@@ -30,7 +30,47 @@ def timethis(func):
         print self.timeout
         print("%s taks cpu：%s wall：%s".format(func.__name__, time.clock()-t0, time.time()-t1))
         return result
-    return wrapper
+    return wrapperdef attach_wrapper(obj, func=None):
+    if func is None:
+        return partial(attach_wrapper, obj)
+    setattr(obj, func.__name__, func)
+    return func
+
+
+def timethis(level, name=None, message=None):
+    """
+    Add logging to a function. level is the logging
+    level, name is the logger name, and message is the
+    log message. If name and message aren't specified,
+    they default to the function's module and name.
+    """
+    def decorate(func):
+        logname = name if name else func.__module__
+        log = logging.getLogger(logname)
+        logmsg = message if message else func.__name__
+        t0, t1 = time.clock(), time.time()
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            # log.log(level, logmsg)
+            res = func(*args, **kwargs)
+            msg = f"{logmsg} CPU {time.clock()-t0} WALL {time.time()-t1}"
+            log.log(level, msg)
+            return res
+        return wrapper
+
+        # Attach setter functions
+        @attach_wrapper(wrapper)
+        def set_level(newlevel):
+            nonlocal level
+            level = newlevel
+
+        @attach_wrapper(wrapper)
+        def set_message(newmsg):
+            nonlocal logmsg
+            logmsg = newmsg
+    return decorate
+    
 ```
 
 检查参数@check\_args
@@ -81,6 +121,33 @@ def typeassert(*args,**kwargs):
             return fun(*funargs,**funkwargs)
         return wrapper    
     return decorator
+    
+from inspect import signature
+
+def typeassert(*ty_args, **ty_kwargs):
+    def decorate(func):
+        # If in optimized mode, disable type checking
+        if not __debug__:
+            return func
+
+        # Map function argument names to supplied types
+        sig = signature(func)
+        bound_types = sig.bind_partial(*ty_args, **ty_kwargs).arguments
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            bound_values = sig.bind(*args, **kwargs)
+            # Enforce type assertions across supplied arguments
+            for name, value in bound_values.arguments.items():
+                if name in bound_types:
+                    if not isinstance(value, bound_types[name]):
+                        raise TypeError(
+                            'Argument {} must be {}'.format(name, bound_types[name])
+                            )
+            return func(*args, **kwargs)
+        return wrapper
+    return decorate
+
 
 @typeassert(int,str)
 def myFun(a,b):
