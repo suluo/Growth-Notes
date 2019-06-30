@@ -13,6 +13,7 @@ level=INFO
 handlers=ConsoleHandler,timeHandler,fileHandler,ConcurrentHandler
 qualname=tornado
 propagate=0
+# propagate默认=1， 表示消息传递给高层次的 logger
 
 ###############################################
 [handlers]
@@ -75,19 +76,29 @@ datefmt=%a, %d %b %Y %H:%M:%S
 [formatter_fmt04]
 format=%(name)-12s: %(levelname)-8s %(message)s
 datefmt=
+
+[formatter_fmt02]
+format=[ %(levelname)1.1s %(asctime)s %(module)s:%(lineno)d %(name)s ][%(process)d %(thread)d %(funcName)s] %(message)s
+datefmt=%y%m%d %H:%M:%S
+
 ```
 
 formatter
 
 ```
-levelname
-asctime
-module
-lineno
-name
-thread
-filename
-funcName
+%(levelno)s：打印日志级别的数值
+%(levelname)s：打印日志级别的名称
+%(pathname)s：打印当前执行程序的路径，其实就是sys.argv[0]
+%(filename)s：打印当前执行程序名
+%(funcName)s：打印日志的当前函数
+%(lineno)d：打印日志的当前行号
+%(asctime)s：打印日志的时间
+%(thread)d：打印线程ID
+%(threadName)s：打印线程名称
+%(process)d：打印进程ID
+%(processName)s：打印线程名称
+%(module)s：打印模块名称
+%(message)s：打印日志信息
 ```
 
 
